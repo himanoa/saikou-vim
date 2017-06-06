@@ -7,7 +7,8 @@ app.use(ctx => {
     sw: parseInt(ctx.query.sw, 10) || 2,
     ts: parseInt(ctx.query.ts, 10) || 2,
     encode: ctx.query.encode || 'utf-8',
-    clipboard: ctx.query.clipboard || 'unnamedplus'
+    clipboard: ctx.query.clipboard || 'unnamedplus',
+    color: ctx.query.color || 'default'
   }
   ctx.body =
 `
@@ -29,6 +30,8 @@ set showmatch
 set clipboard+=${params.clipboard}
 set noequalalways
 set splitbelow
+colorscheme ${params.color}
+syntax on
 `
 })
 
